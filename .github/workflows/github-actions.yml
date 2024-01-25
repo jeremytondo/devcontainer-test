@@ -26,8 +26,6 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: |
-            jeremytondo/test
           tags: |
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}
