@@ -23,9 +23,10 @@ jobs:
       
       - name: Extract metadata (tags, labels) for Docker image
         id: meta
-        uses: docker/metadata-action@v3
+        uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/jeremytondo/test
+          images: |
+            ghcr.io/jeremytondo/test
           tags: |
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}
