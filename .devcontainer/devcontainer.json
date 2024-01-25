@@ -1,0 +1,16 @@
+{
+  "image": "ghcr.io/jeremytondo/node:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "npm install -g @devcontainers/cli",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "mads-hartmann.bash-ide-vscode",
+        "dbaeumer.vscode-eslint",
+        "EditorConfig.EditorConfig"
+      ]
+    }
+  }
+}

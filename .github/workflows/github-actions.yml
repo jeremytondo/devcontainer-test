@@ -1,0 +1,41 @@
+name: Node Image Build & Deploy 
+on:
+  release:
+    types: [published]
+jobs:
+  deploy-node:
+    name: Deploy Node
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v3
+      
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{secrets.GITHUB_TOKEN}}
+      
+      - name: Extract metadata (tags, labels) for Docker image
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ghcr.io/jeremytondo/node
+          tags: |
+            type=semver,pattern=v{{version}}
+            type=semver,pattern=v{{major}}
+            type=edge,branch=main   
+      
+      - name: Pre-build dev container image
+        uses: devcontainers/ci@v0.2
+        with:
+          subFolder: node
+          imageName: ghcr.io/jeremytondo/test
+          cacheFrom: ghcr.io/jeremytondo/test
+          push: always
+          imageTag: ${{ steps.meta.outputs.tags }}
