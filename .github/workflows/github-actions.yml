@@ -25,7 +25,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/jeremytondo/node
+          images: ghcr.io/jeremytondo/test
           tags: |
             type=semver,pattern=v{{version}}
             type=semver,pattern=v{{major}}
