@@ -1,6 +1,8 @@
 name: Node Image Build & Deploy 
 on:
   push:
+    branches:
+      - 'master'
     tags:
       - 'v*'
 jobs:
