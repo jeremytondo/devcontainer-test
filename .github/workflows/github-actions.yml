@@ -2,7 +2,7 @@ name: Node Image Build & Deploy
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     tags:
       - 'v*'
 jobs:
