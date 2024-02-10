@@ -7,6 +7,9 @@ on:
       - 'v*'
 jobs:
   deploy-node:
+    strategy:
+      matrix:
+        version: [18, 19, 20]
     name: Deploy Node
     runs-on: ubuntu-latest
     permissions:
@@ -41,3 +44,5 @@ jobs:
           cacheFrom: ghcr.io/jeremytondo/test
           push: always
           imageTag: ${{ steps.meta.outputs.tags }}
+          env: 
+            VARIANT=${{ matrix.version }}

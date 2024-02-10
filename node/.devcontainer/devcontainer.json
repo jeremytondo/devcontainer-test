@@ -2,5 +2,6 @@
   "build": {
     "dockerfile": "Dockerfile"
   },
+  // "image": "mcr.microsoft.com/devcontainers/base:alpine-3.18",
   "postCreateCommand": "echo Test"
 }
