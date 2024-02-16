@@ -78,12 +78,3 @@ install_nvim() {
 
 # Run the main function when the script runs.
 main
-
-# NOTES
-# Somewhere need to add global Git settings
-# git config --global user.email "you@example.com"
-# git config --global user.name "Your Name"
-# 
-# Maybe add this git config as well:
-# git config --global --add --bool push.autoSetupRemote true
-# This creates new branches in the remote when they are pushed.
