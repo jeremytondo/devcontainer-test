@@ -49,8 +49,8 @@ install_lsd() {
   echo "Installing LSD..."
   wget https://github.com/lsd-rs/lsd/releases/download/v1.0.0/lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
   tar -xzf lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
-  mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd /usr/bin/
-  chown root:root /usr/bin/lsd
+  sudo mv lsd-v1.0.0-x86_64-unknown-linux-gnu/lsd /usr/bin/
+  sudo chown root:root /usr/bin/lsd
   rm -rf lsd-v1.0.0-x86_64-unknown-linux-gnu
   rm lsd-v1.0.0-x86_64-unknown-linux-gnu.tar.gz
 }
